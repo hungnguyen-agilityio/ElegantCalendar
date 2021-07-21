@@ -29,8 +29,12 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
                     .onTapGesture { self.communicator?.showYearlyView() }
                 weeksViewWithDaysOfWeekHeader
             }
-            .padding([.top, .bottom], 20)
+            .padding(.top, 20)
+            .padding(.bottom, 250)
             .background(Color.pampas)
+            .readHeight {
+                calendarManager.heightMonthCalendar = $0
+            }
             
 //            if selectedDate != nil {
 //                calenderAccessoryView
@@ -97,7 +101,7 @@ private extension MonthView {
     }
 
 }
-
+/*
 private extension MonthView {
 
     var calenderAccessoryView: some View {
@@ -178,3 +182,4 @@ private struct CalendarAccessoryView: View, MonthlyCalendarManagerDirectAccess {
     }
 
 }
+*/
