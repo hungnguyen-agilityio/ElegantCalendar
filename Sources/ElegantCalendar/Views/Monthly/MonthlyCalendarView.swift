@@ -33,9 +33,8 @@ public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
         CalendarConstants.Monthly.cellWidth = geometry.size.width
 
         return ZStack(alignment: .top) {
-            VStack {
-                monthsList
-            }
+            monthsList
+
 //            if isTodayWithinDateRange && !isCurrentMonthYearSameAsTodayMonthYear {
 //                leftAlignedScrollBackToTodayButton
 //                    .padding(.trailing, CalendarConstants.Monthly.outerHorizontalPadding)
@@ -43,6 +42,8 @@ public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
 //                    .transition(.opacity)
 //            }
         }
+        .background(Color.pampas)
+        .frame(height: CalendarConstants.cellHeight)
     }
 
     private var monthsList: some View {
@@ -53,7 +54,6 @@ public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
                              viewForPage: monthView)
                     .onPageChanged(configureNewMonth)
                     .frame(width: CalendarConstants.Monthly.cellWidth)
-                    .animation(.easeInOut(duration: 0.5))
             } else {
                 ElegantHList(manager: listManager,
                              pageTurnType: .monthlyEarlyCutoff,
@@ -104,9 +104,3 @@ public extension EarlyCutOffConfiguration {
         pageTurnAnimation: .spring(response: 0.3, dampingFraction: 0.95))
 
 }
-
-//extension MonthlyCalendarView where Content == EmptyView {
-//    init(calendarManager: MonthlyCalendarManager) {
-//        self.init(calendarManager: calendarManager, content: { EmptyView() })
-//    }
-//}
