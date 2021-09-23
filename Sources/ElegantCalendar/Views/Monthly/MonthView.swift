@@ -30,8 +30,6 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
                 weeksViewWithDaysOfWeekHeader
             }
             .padding(.top, 20)
-            .padding(.bottom, 250)
-            .background(Color.pampas)
             .readHeight {
                 calendarManager.heightMonthCalendar = $0
             }
