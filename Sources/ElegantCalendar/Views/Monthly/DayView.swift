@@ -29,7 +29,9 @@ struct DayView: View, MonthlyCalendarManagerDirectAccess {
     }
 
     private var isDayToday: Bool {
-        calendar.isDateInToday(day)
+//        calendar.isDateInToday(day)
+        calendar.isDateInToday(day) &&
+        calendar.isDate(calendarManager.currentMonth, equalTo: Date(), toGranularities: [.month, .year])
     }
 
     private var isSelected: Bool {
