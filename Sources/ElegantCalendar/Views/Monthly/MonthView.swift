@@ -42,6 +42,7 @@ struct MonthView: View, MonthlyCalendarManagerDirectAccess {
             Spacer()
         }
         .padding(.top, CalendarConstants.Monthly.topPadding)
+        .background(Color.pampas)
         .frame(width: CalendarConstants.Monthly.cellWidth, height: CalendarConstants.cellHeight)
     }
 
